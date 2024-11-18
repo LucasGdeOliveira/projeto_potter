@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Dashboard Hogwarts{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <header>
+        <h1>Bem-vindo ao Dashboard de Hogwarts</h1>
+        <nav>
+            <a href="/">Prever Nota Final</a> | 
+            <a href="/graficos">Ver Gráficos de Notas por Casa</a> |
+            <a href="/eda">Análise Exploratória de Dados</a> | 
+            <a href="/export">Exportar Dados</a> |
+            <a href="/comparar">Comparar Alunos</a> |
+<!--Lucas--><a href="/quadribol">Quadribol</a>
+            {% if current_user.is_authenticated %}
+<!--Lucas-->              <!--  <span class="user-name">Olá, {{ current_user.name }}!</span>-->
+            {% endif %}
+            <p><a href="/logout" class="logout-button">Logout</a></p>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,43 @@
+ <!--Lucas--> 
+ {% extends "base.html" %}
+
+{% block title %}Estatísticas de Quadribol - Hogwarts{% endblock %}
+
+{% block content %}
+<div class="quadribol-container">
+    <h2>Estatísticas de Quadribol</h2>
+    
+    <div class="stats-grid">
+        <!-- Gráfico de Pontuação por Casa -->
+        <div class="chart-container">
+            <h3>Pontuação por Casa</h3>
+            <canvas id="pontosQuadribolChart"></canvas>
+        </div>
+
+        <!-- Gráfico de Vitórias por Time -->
+        <div class="chart-container">
+            <h3>Vitórias por Time</h3>
+            <canvas id="vitoriasChart"></canvas>
+        </div>
+
+        <!-- Gráfico de Capturas do Pomo de Ouro -->
+        <div class="chart-container">
+            <h3>Capturas do Pomo de Ouro</h3>
+            <canvas id="pomoChart"></canvas>
+        </div>
+
+        <!-- Estatísticas do Campeonato -->
+        <div class="stats-container">
+            <h3>Estatísticas do Campeonato</h3>
+            <div id="tabelaCampeonato"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Incluindo Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/quadribol.js') }}"></script>
+
+{% endblock %}
+
